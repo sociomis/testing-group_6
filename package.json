@@ -1,0 +1,15 @@
+{
+  "name": "testingpart2",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+	  "test": "mocha \"test/**/*.test.js\"",
+
+  
+  
+  "devDependencies": {
+    "chai": "^6.3.0",
+    "mocha": "^12.0.3",
+    "nyc": "^18.0.0"
+  }
+}
