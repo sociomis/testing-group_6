@@ -13,12 +13,12 @@ const users2 = [
 
 describe('filter', function() {
     it('does not crash when array is empty and returns nothing', function() {
-        expect(filter([], ({ active }) => active)).to.equal([]);
+        expect(filter([], ({ active }) => active)).to.deep.equal([]);
     });
     it('returns an array of elements that evaluate true from the predicate', function() {
-        expect(filter(users, ({ active }) => active)).to.deep.equal(['barney']);
+        expect(filter(users, ({ active }) => active)).to.deep.equal([{ user: 'barney', active: true }]);
     });
     it('throws exception when predicate returns invalid type', function() {
-        expect(filter(users2, 'hello')).to.throw();
+        expect(() => filter(users2, 'hello')).to.throw();
     });
 });
