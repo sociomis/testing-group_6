@@ -5,6 +5,8 @@ const values = [
     'apple',
     'pear',
     'pineapple',
+    'cherry',
+    'strawberry',
     'milk',
     'butter'
 ]
@@ -12,6 +14,19 @@ const values = [
 const exclude = [
     'milk',
     'butter'
+]
+
+const items = [
+    'hammer',
+    'screwdriver'
+]
+
+const mix = [
+    1,
+    'beans',
+    2026,
+    666,
+    'potato'
 ]
 
 
@@ -25,7 +40,16 @@ describe('difference', function () {
     });
     
     it('excludes correct items', function() {
-	expect(difference(values, exclude)).to.deep.equal(['apple','pear','pineapple'])
+	expect(difference(values, exclude)).to.deep.equal(['apple','pear','pineapple','cherry','strawberry'])
     })
+
+    it('excludes all when given same array', function() {
+	expect(difference(values, values)).to.deep.equal([])
+    })
+
+    it('does not crash when given array with mixed types', function() {
+	expect(difference(mix, items)).to.deep.equal(mix)
+    })
+
 });
      
