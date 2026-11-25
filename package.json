@@ -2,12 +2,24 @@
   "name": "testingpart2",
   "version": "1.0.0",
   "type": "module",
+
   "scripts": {
-	  "test": "mocha \"test/**/*.test.js\"",
-	  "test:watch": "mocha --watch \"test/**/*.test.js\"", 
-     	  "coverage": "nyc npm test",
-          "coverage:check": "nyc --check-coverage npm test"
+    "test": "mocha \"test/**/*.test.js\"",
+    "test:watch": "mocha --watch \"test/**/*.test.js\"",
+    "coverage": "npx nyc npm test",
+    "coverage:check": "npx nyc --check-coverage npm test"
   },
+
+  "nyc": {
+    "all": true,
+    "reporter": [
+      "text",
+      "lcov",
+      "html"
+    ],
+    "report-dir": "coverage"
+  },
+
   "devDependencies": {
     "chai": "^6.3.0",
     "mocha": "^12.0.3",
