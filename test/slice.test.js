@@ -7,6 +7,10 @@ describe('slice', function () {
     it('returns array with no parameters', function(){
 	    expect(slice(array)).to.deep.equal(array)
     });
+
+    it('does not crash with empty array', function(){
+	    expect(slice([])).to.deep.equal([])
+    });
     
     it('slices correctly with one parameter', function () {
         expect(slice(array, 2)).to.deep.equal([3, 4, 5, 6, 7])
